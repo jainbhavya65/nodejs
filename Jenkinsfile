@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-              docker push jainbhavya65/test
+              sh 'docker build -t jainbhavya65/test:v1 .'
+              sh 'docker push jainbhavya65/test:v1'
             }
         }
     }
