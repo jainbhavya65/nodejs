@@ -30,7 +30,8 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
      withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'DockerHubPassword', usernameVariable: 'DockerHubUser')]) {
           sh "docker login -u ${env.DockerHubUser} -p ${env.DockerHubPassword}"
-         sh 'docker push jainbhavya65/test:${env.BUILD_NUMBER}'
+         app.push("${env.BUILD_NUMBER}")
+         app.push("latest")
         }
     }
 }
