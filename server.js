@@ -3,7 +3,7 @@ var express =  require('express');
 var bodyParser = require('body-parser');
 var process = require('process');
 var port_no = '';
-process.env.NODE_ENV = "development"
+process.env.NODE_ENV = "production"
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
@@ -11,8 +11,8 @@ app.use(bodyParser.json());
 //setting view engine
 app.set('view engine', 'ejs');
 
-if(app.get('env') == 'production' ){
-    port_no = 3000;
+if(app.get('env') == 'development' ){
+    port_no = 3001;
 }
 
 if(app.get('env') == 'production'){
