@@ -22,6 +22,7 @@ if(app.get('env') == 'production'){
 
 
 app.get('/' , (req,res) => {
+    console.log("kfadslfjasldfjdslakfjadslkfjdslkafjadslkfjdslakfjdsalkfjdslkfjeiroieuroiewurvdnvmndfoiaefjdlkfjdskljcdslkvncmvncx,mvncxm,vnzcxm,vnzdvjdflkjdaklfjsdlakfjdaslfk")
     res.render('index.ejs')
 })
 
