@@ -1,8 +1,5 @@
-FROM alpine
+FROM node:10
 
-RUN apk --update add nodejs
-RUN apk add --no-cache npm
-RUN apk add --no-cache python
 RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
