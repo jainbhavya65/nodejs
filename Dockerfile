@@ -1,21 +1,18 @@
-FROM node:carbon
+FROM alpine
 
-# Create app directory
+RUN apk --update add nodejs
+RUN apk add --no-cache npm
+RUN apk add --no-cache python
+RUN mkdir -p /usr/src/app
+
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-
-RUN npm install
-#RUN npm install --save @google-cloud/logging-bunyan
-# RUN  npm install --save @google-cloud/profiler
-# If you are building your code for production
-# RUN npm install --only=production
-
 # Bundle app source
-COPY . .
+COPY . /usr/src/app
 
-EXPOSE 9090 
-CMD [ "npm", "start" ]
+# Install app node dependencies
+#COPY package.json /usr/src/app
+RUN npm install
+
+EXPOSE 7000
+CMD ["npm", "start"]
